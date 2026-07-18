@@ -1,5 +1,11 @@
 # Release Notes
 
+## v1.0.1 - Accessibility hardening
+
+- Increased contrast for secondary, success, warning, and failure text across the event and replay workbench.
+- Made the horizontally scrollable contract registry keyboard focusable and labeled.
+- Preserved retry, idempotency, contract, import/export, and human replay workflows.
+
 ## v1.0.0 - Webhook Reliability Workbench
 
 - Added ten synthetic events across five delivery states.

@@ -2,7 +2,7 @@
 
 FlowReplay Console is a local-first webhook reliability workbench. It validates synthetic event envelopes against versioned contracts, models transient and permanent responses, exposes retry timing, prevents repeated side effects with idempotency keys, and keeps dead-letter replay behind a reasoned human approval.
 
-[Live demo](https://jubjub-cpu.github.io/flowreplay-console/) | [Portfolio](https://jubjub-cpu.github.io/gabe-ai-product-portfolio/) | [v1.0.0 release](https://github.com/jubjub-cpu/flowreplay-console/releases/tag/v1.0.0)
+[Live demo](https://jubjub-cpu.github.io/flowreplay-console/) | [Portfolio](https://jubjub-cpu.github.io/gabe-ai-product-portfolio/) | [v1.0.1 release](https://github.com/jubjub-cpu/flowreplay-console/releases/tag/v1.0.1)
 
 ## Business Problem
 

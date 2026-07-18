@@ -99,7 +99,7 @@ function shell() {
           <div id="plan-output" class="plan-output"></div>
         </aside>
       </div>
-      <section class="registry-section" aria-labelledby="registry-heading"><div class="panel-heading"><div><p class="eyebrow">Versioned schemas</p><h3 id="registry-heading">Contract registry</h3></div><span>${Object.keys(state.contracts).length} active contracts</span></div><div id="contract-registry" class="table-wrap"></div></section>
+      <section class="registry-section" aria-labelledby="registry-heading"><div class="panel-heading"><div><p class="eyebrow">Versioned schemas</p><h3 id="registry-heading">Contract registry</h3></div><span>${Object.keys(state.contracts).length} active contracts</span></div><div id="contract-registry" class="table-wrap" tabindex="0" aria-label="Contract registry table"></div></section>
       <section class="audit-section" aria-labelledby="audit-heading"><div class="panel-heading"><div><p class="eyebrow">Human and system evidence</p><h3 id="audit-heading">Replay audit</h3></div><span>Local session</span></div><ol id="audit-list"></ol></section>
     </section>
   </div>`;

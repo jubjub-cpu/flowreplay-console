@@ -36,3 +36,11 @@ Status: passed on 2026-07-17.
 ## Commit Identity
 
 All commits use `Gabe Baires <278264124+jubjub-cpu@users.noreply.github.com>`.
+
+## v1.0.1 hardening
+
+Validated locally on July 18, 2026.
+
+- Increased secondary and status contrast and added keyboard focus plus an accessible label to the contract registry.
+- Repository validator, replay-engine tests, and local browser workflow passed.
+- Local axe-core audit passed at desktop and mobile viewports with zero violations; the same audit is required against the deployed patch before release publication.
