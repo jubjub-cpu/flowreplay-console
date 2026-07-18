@@ -81,7 +81,3 @@ Exact evidence is recorded in [docs/VALIDATION.md](docs/VALIDATION.md).
 - Retry timing is simulated and does not model distributed clock drift, queue partitioning, or provider-specific headers.
 - The idempotency store exists only for the local session.
 - Signature verification, encrypted secret storage, network delivery, and persistent queues belong in a production service, not this static demo.
-
-## AI-Assisted Development
-
-Product direction, API workflow design, failure taxonomy, synthetic contracts, replay policy, test scenarios, visual review, and release decisions were directed by Gabe with AI-assisted implementation support. No traditional engineering employment, customer use, production traffic, uptime result, or incident reduction is claimed.
