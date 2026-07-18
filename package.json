@@ -1,0 +1,1 @@
+{"name":"flowreplay-console","version":"1.0.0","private":true,"type":"module","scripts":{"test:logic":"node tests/replay-engine.test.mjs","test:browser":"node tests/browser-smoke.mjs","serve":"node tools/static-server.mjs"}}

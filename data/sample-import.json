@@ -1,0 +1,17 @@
+{
+  "id": "evt_import_01",
+  "eventType": "subscription.changed",
+  "version": "v2",
+  "createdAt": "2026-07-17T19:00:00Z",
+  "endpoint": "https://hooks.sandbox.example/entitlements",
+  "idempotencyKey": "subscription_demo_301:change:4",
+  "payload": {
+    "id": "evt_import_01",
+    "data": {
+      "subscription_id": "subscription_demo_301",
+      "plan": "team",
+      "seats": 12,
+      "effective_at": "2026-08-15T00:00:00Z"
+    }
+  }
+}

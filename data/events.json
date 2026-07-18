@@ -1,0 +1,207 @@
+{
+  "workspace": "Northstar webhook sandbox",
+  "notice": "All endpoints, payloads, identities, and delivery attempts are fictional synthetic test data.",
+  "contracts": {
+    "order.fulfilled@v1": {
+      "eventType": "order.fulfilled",
+      "version": "v1",
+      "description": "Order completion notification for fulfillment subscribers.",
+      "fields": [
+        { "path": "id", "type": "string" },
+        { "path": "data.order_id", "type": "string" },
+        { "path": "data.fulfilled_at", "type": "string" },
+        { "path": "data.items", "type": "number" }
+      ]
+    },
+    "invoice.paid@v1": {
+      "eventType": "invoice.paid",
+      "version": "v1",
+      "description": "Successful synthetic invoice settlement event.",
+      "fields": [
+        { "path": "id", "type": "string" },
+        { "path": "data.invoice_id", "type": "string" },
+        { "path": "data.amount", "type": "number" },
+        { "path": "data.currency", "type": "string" }
+      ]
+    },
+    "invoice.failed@v1": {
+      "eventType": "invoice.failed",
+      "version": "v1",
+      "description": "Failed synthetic invoice attempt with retry context.",
+      "fields": [
+        { "path": "id", "type": "string" },
+        { "path": "data.invoice_id", "type": "string" },
+        { "path": "data.reason", "type": "string" },
+        { "path": "data.retryable", "type": "boolean" }
+      ]
+    },
+    "subscription.changed@v2": {
+      "eventType": "subscription.changed",
+      "version": "v2",
+      "description": "Subscription plan and seat change notification.",
+      "fields": [
+        { "path": "id", "type": "string" },
+        { "path": "data.subscription_id", "type": "string" },
+        { "path": "data.plan", "type": "string" },
+        { "path": "data.seats", "type": "number" },
+        { "path": "data.effective_at", "type": "string" }
+      ]
+    },
+    "customer.updated@v2": {
+      "eventType": "customer.updated",
+      "version": "v2",
+      "description": "Customer profile update with explicit consent state.",
+      "fields": [
+        { "path": "id", "type": "string" },
+        { "path": "data.customer_id", "type": "string" },
+        { "path": "data.email", "type": "string" },
+        { "path": "data.consent", "type": "boolean" }
+      ]
+    },
+    "shipment.delayed@v1": {
+      "eventType": "shipment.delayed",
+      "version": "v1",
+      "description": "Synthetic delay telemetry for a monitored shipment.",
+      "fields": [
+        { "path": "id", "type": "string" },
+        { "path": "data.shipment_id", "type": "string" },
+        { "path": "data.delay_minutes", "type": "number" },
+        { "path": "data.temperature_c", "type": "number" }
+      ]
+    }
+  },
+  "events": [
+    {
+      "id": "evt_1041",
+      "eventType": "order.fulfilled",
+      "version": "v1",
+      "createdAt": "2026-07-17T18:02:00Z",
+      "endpoint": "https://hooks.sandbox.example/fulfillment",
+      "idempotencyKey": "order_demo_402:fulfilled:v1",
+      "status": "delivered",
+      "attempts": [
+        { "number": 1, "statusCode": 200, "classification": "success", "latencyMs": 184, "scheduledAfterSeconds": 0 }
+      ],
+      "payload": { "id": "evt_1041", "data": { "order_id": "order_demo_402", "fulfilled_at": "2026-07-17T18:01:48Z", "items": 3 } }
+    },
+    {
+      "id": "evt_1042",
+      "eventType": "invoice.paid",
+      "version": "v1",
+      "createdAt": "2026-07-17T18:04:00Z",
+      "endpoint": "https://hooks.sandbox.example/billing",
+      "idempotencyKey": "invoice_demo_881:paid:v1",
+      "status": "delivered",
+      "attempts": [
+        { "number": 1, "statusCode": 200, "classification": "success", "latencyMs": 132, "scheduledAfterSeconds": 0 }
+      ],
+      "payload": { "id": "evt_1042", "data": { "invoice_id": "invoice_demo_881", "amount": 1240, "currency": "USD" } }
+    },
+    {
+      "id": "evt_1043",
+      "eventType": "customer.updated",
+      "version": "v2",
+      "createdAt": "2026-07-17T18:06:00Z",
+      "endpoint": "https://hooks.sandbox.example/customer-sync",
+      "idempotencyKey": "customer_demo_112:profile:7",
+      "status": "delivered",
+      "attempts": [
+        { "number": 1, "statusCode": 200, "classification": "success", "latencyMs": 208, "scheduledAfterSeconds": 0 }
+      ],
+      "payload": { "id": "evt_1043", "data": { "customer_id": "customer_demo_112", "email": "synthetic.user@example.test", "consent": true } }
+    },
+    {
+      "id": "evt_1044",
+      "eventType": "shipment.delayed",
+      "version": "v1",
+      "createdAt": "2026-07-17T18:08:00Z",
+      "endpoint": "https://hooks.sandbox.example/logistics",
+      "idempotencyKey": "shipment_demo_715:delay:1",
+      "status": "delivered",
+      "attempts": [
+        { "number": 1, "statusCode": 200, "classification": "success", "latencyMs": 241, "scheduledAfterSeconds": 0 }
+      ],
+      "payload": { "id": "evt_1044", "data": { "shipment_id": "shipment_demo_715", "delay_minutes": 35, "temperature_c": 4.2 } }
+    },
+    {
+      "id": "evt_1045",
+      "eventType": "subscription.changed",
+      "version": "v2",
+      "createdAt": "2026-07-17T18:10:00Z",
+      "endpoint": "https://hooks.sandbox.example/entitlements",
+      "idempotencyKey": "subscription_demo_083:change:12",
+      "status": "retrying",
+      "attempts": [
+        { "number": 1, "statusCode": 429, "classification": "transient", "latencyMs": 96, "scheduledAfterSeconds": 0 },
+        { "number": 2, "statusCode": 429, "classification": "transient", "latencyMs": 88, "scheduledAfterSeconds": 15 }
+      ],
+      "nextAttemptAt": "2026-07-17T18:10:45Z",
+      "payload": { "id": "evt_1045", "data": { "subscription_id": "subscription_demo_083", "plan": "scale", "seats": 24, "effective_at": "2026-08-01T00:00:00Z" } }
+    },
+    {
+      "id": "evt_1046",
+      "eventType": "invoice.failed",
+      "version": "v1",
+      "createdAt": "2026-07-17T18:12:00Z",
+      "endpoint": "https://hooks.sandbox.example/risk-review",
+      "idempotencyKey": "invoice_demo_907:failed:2",
+      "status": "dead-letter",
+      "attempts": [
+        { "number": 1, "statusCode": 503, "classification": "transient", "latencyMs": 410, "scheduledAfterSeconds": 0 },
+        { "number": 2, "statusCode": 503, "classification": "transient", "latencyMs": 392, "scheduledAfterSeconds": 15 },
+        { "number": 3, "statusCode": 503, "classification": "transient", "latencyMs": 455, "scheduledAfterSeconds": 30 }
+      ],
+      "payload": { "id": "evt_1046", "data": { "invoice_id": "invoice_demo_907", "reason": "synthetic_card_decline", "retryable": false } }
+    },
+    {
+      "id": "evt_1047",
+      "eventType": "order.fulfilled",
+      "version": "v1",
+      "createdAt": "2026-07-17T18:14:00Z",
+      "endpoint": "https://hooks.sandbox.example/warehouse",
+      "idempotencyKey": "order_demo_588:fulfilled:v1",
+      "status": "dead-letter",
+      "attempts": [
+        { "number": 1, "statusCode": null, "classification": "transient", "latencyMs": 3000, "scheduledAfterSeconds": 0 },
+        { "number": 2, "statusCode": null, "classification": "transient", "latencyMs": 3000, "scheduledAfterSeconds": 15 },
+        { "number": 3, "statusCode": null, "classification": "transient", "latencyMs": 3000, "scheduledAfterSeconds": 30 }
+      ],
+      "payload": { "id": "evt_1047", "data": { "order_id": "order_demo_588", "fulfilled_at": "2026-07-17T18:13:40Z", "items": 7 } }
+    },
+    {
+      "id": "evt_1048",
+      "eventType": "invoice.paid",
+      "version": "v1",
+      "createdAt": "2026-07-17T18:16:00Z",
+      "endpoint": "https://hooks.sandbox.example/billing",
+      "idempotencyKey": "invoice_demo_881:paid:v1",
+      "status": "duplicate",
+      "attempts": [
+        { "number": 1, "statusCode": 208, "classification": "idempotent", "latencyMs": 11, "scheduledAfterSeconds": 0 }
+      ],
+      "payload": { "id": "evt_1048", "data": { "invoice_id": "invoice_demo_881", "amount": 1240, "currency": "USD" } }
+    },
+    {
+      "id": "evt_1049",
+      "eventType": "customer.updated",
+      "version": "v2",
+      "createdAt": "2026-07-17T18:18:00Z",
+      "endpoint": "https://hooks.sandbox.example/customer-sync",
+      "idempotencyKey": "customer_demo_661:profile:3",
+      "status": "contract-failed",
+      "attempts": [],
+      "payload": { "id": "evt_1049", "data": { "customer_id": "customer_demo_661", "consent": true } }
+    },
+    {
+      "id": "evt_1050",
+      "eventType": "shipment.delayed",
+      "version": "v1",
+      "createdAt": "2026-07-17T18:20:00Z",
+      "endpoint": "https://hooks.sandbox.example/logistics",
+      "idempotencyKey": "shipment_demo_902:delay:1",
+      "status": "contract-failed",
+      "attempts": [],
+      "payload": { "id": "evt_1050", "data": { "shipment_id": "shipment_demo_902", "delay_minutes": 70, "temperature_c": "4.8" } }
+    }
+  ]
+}

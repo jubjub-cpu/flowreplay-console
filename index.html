@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Local-first webhook reliability console for contract validation, retries, idempotency, replay, and dead-letter recovery.">
+  <title>FlowReplay Console | Webhook Reliability Workbench</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to event workspace</a>
+  <header class="app-header">
+    <a class="brand" href="./" aria-label="FlowReplay Console home">
+      <span class="brand-mark">FR</span>
+      <span><small>Webhook reliability</small><strong>FlowReplay Console</strong></span>
+    </a>
+    <nav class="header-links" aria-label="Project links">
+      <span class="mode-badge">Sandbox only</span>
+      <a href="docs/CASE_STUDY.md">Case study</a>
+      <a href="https://github.com/jubjub-cpu/flowreplay-console">Repository</a>
+    </nav>
+  </header>
+  <main id="workspace" tabindex="-1" aria-live="polite">
+    <section class="startup" aria-labelledby="startup-title">
+      <p class="eyebrow">Loading event fixtures</p>
+      <h1 id="startup-title">Preparing delivery evidence</h1>
+      <div class="loader" aria-hidden="true"><span></span></div>
+    </section>
+  </main>
+  <footer>
+    <p>Synthetic webhook payloads only. No production endpoint, customer event, secret, or live delivery is used.</p>
+    <a href="https://jubjub-cpu.github.io/gabe-ai-product-portfolio/">Gabe's AI product portfolio</a>
+  </footer>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
