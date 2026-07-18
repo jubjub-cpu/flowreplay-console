@@ -16,9 +16,16 @@ Status: passed on 2026-07-17.
 
 ## Deployment Checks
 
-Status: pending the first GitHub Pages publish.
+Status: passed on 2026-07-17.
 
-The deployed browser suite will run against `https://jubjub-cpu.github.io/flowreplay-console/` and must match the local workflow before v1.0.0 is released.
+- GitHub Pages built remote commit `1385b4b74bb5e5f2e2bacad9aa729907c27d1c99` successfully.
+- `https://jubjub-cpu.github.io/flowreplay-console/` returned HTTP 200.
+- `FLOWREPLAY BROWSER TESTS PASSED` against the deployed URL.
+- Ten fixtures and six contracts rendered.
+- Dead-letter recovery, idempotent no-op, contract block, JSON import, JSON export, nonblank Canvas, and keyboard checks passed.
+- Desktop and mobile overflow: none.
+- Browser console errors: none.
+- Failed requests: none.
 
 ## Privacy Check
 
